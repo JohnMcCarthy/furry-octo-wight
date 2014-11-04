@@ -11,7 +11,7 @@ public class HelloWorld extends HttpServlet {
             throws ServletException, IOException {
         String message = System.getenv("POWERED_BY");
         if (message == null) {
-            message = "Deis";
+            message = "Deisys";
         }
         resp.getWriter().print("Powered by " + message);
     }
@@ -21,7 +21,9 @@ public class HelloWorld extends HttpServlet {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
-        context.addServlet(new ServletHolder(new HelloWorld()),"/*");
+        context.addServlet(new ServletHolder(new HelloWorld()),"/hello");
+        context.addServlet(new ServletHolder(new CodeSnippetNameServlet()), "/names");
+        context.addServlet(new ServletHolder(new CodeRunnerRootServlet()),"/code/*");
         server.start();
         server.join();   
     }
