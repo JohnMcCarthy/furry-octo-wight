@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* CodeRunnerRootServlet
+web: java -cp target/classes:target/dependency/* HelloWorld
