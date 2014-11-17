@@ -1,4 +1,4 @@
-
+package com.cloudmine.coderunnerwrapper;
 
 import com.cloudmine.api.rest.JsonUtilities;
 import com.cloudmine.coderunner.SnippetContainer;
